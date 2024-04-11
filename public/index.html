@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Application Title Here</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to your CSS file -->
+    <!-- Add additional meta tags, links, or scripts here -->
+</head>
+<body>
+
+    <header>
+        <!-- Navigation, logo, or header content goes here -->
+    </header>
+
+    <main>
+        <!-- This is the template file for your project. -->
+        <!-- Begin adding your application's content here: forms, lists, tables, etc. -->
+        <p>This is your starting point. Replace this text with your application's components.</p>
+    </main>
+
+    <footer>
+        <!-- Footer content like contact information, social links, or copyright notices goes here -->
+    </footer>
+    <script type="module">
+        // This is my toaster component in case you can use it
+        // It should come before your script file
+        // It has three modes: add (green), update (blue), remove (red)
+        // To use:
+        //  toaster.show(mode, message, delay);
+        //  mode: string with he possible values "add", "update", "remove"
+        //  message: string with a message you want to display on screen
+        //  delay: a number in milliseconds
+        // Example:
+        //  toaster.show('add', `Item ${item.name} added...`, 2000);
+        import { toaster } from './js/toaster.js'; 
+        window.toaster = toaster; 
+    </script>
+    <script src="js/index.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

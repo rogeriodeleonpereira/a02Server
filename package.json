@@ -1,0 +1,17 @@
+{
+  "name": "a02",
+  "version": "1.0.1",
+  "description": "Assignment 02 - Winter 2024",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "author": "Rogerio de Leon Pereira",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}

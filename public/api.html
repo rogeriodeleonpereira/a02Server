@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="css/api.css"> <!-- We'll create this CSS file next -->
+</head>
+<body>
+    <header>
+        <h1>Fantasy RPG API Documentation</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Endpoints</h2>
+            <article>
+                <h3>Get All Items</h3>
+                <p>Returns an array of all RPG characters.</p>
+  <code>
+    fetch('/api/items')
+    .then(response => response.json())
+    .then(data => console.log(data));
+  </code>
+                <p><strong>Expected Return:</strong> Array of objects</p>
+            </article>
+            <article>
+                <h3>Get a Single Item by ID</h3>
+                <p>Returns a single RPG character by ID.</p>
+  <code>
+    fetch('/api/items/id-1')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  </code>
+                <p><strong>Expected Return:</strong> Object</p>
+            </article>
+            <article>
+                <h3>Create a New Item</h3>
+                <p>Creates a new RPG character.</p>
+  <code>
+    fetch('/api/items', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: 'Samwise Gamgee',
+            role: 'Gardener',
+            weapon: 'Pan',
+            race: 'Hobbit'
+        }),
+    }).then(response => response.json()).then(data => console.log(data));
+  </code>
+                <p><strong>Expected Return:</strong> Object (created item)</p>
+            </article>
+            <article>
+              <h3>Update an Item Fully by ID (PUT)</h3>
+              <p>Updates an existing RPG character fully by its unique ID.</p>
+  <code>
+    fetch('/api/items/id-2', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: 'Legolas',
+            role: 'Archer',
+            weapon: 'Bow and Arrow',
+            race: 'Elf'
+        }),
+    }).then(response => response.json()).then(data => console.log(data));
+  </code>
+              <p><strong>Expected Return:</strong> Object (updated item)</p>
+          </article>
+          
+          <article>
+              <h3>Update an Item Partially by ID (PATCH)</h3>
+              <p>Partially updates an existing RPG character by its unique ID. Only provided fields are updated.</p>
+  <code>
+    fetch('/api/items/id-3', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            weapon: 'Dual Axes'
+        }),
+    }).then(response => response.json()).then(data => console.log(data));
+  </code>
+              <p><strong>Expected Return:</strong> Object (partially updated item)</p>
+          </article>
+          
+          <article>
+              <h3>Delete an Item by ID</h3>
+              <p>Deletes an RPG character by its unique ID.</p>
+  <code>
+    fetch('/api/items/id-4', {
+        method: 'DELETE'
+    }).then(response => {
+        if (response.ok) return response.text();
+        throw new Error('Item not found.');
+    }).then(data => console.log(data));
+  </code>
+              <p><strong>Expected Return:</strong> Object removed or error message.</p>
+          </article>
+          <article>
+            <h3>Reset Database to Default</h3>
+            <p>Resets the RPG inventory database to its original default state. This operation is useful for reinitializing the server data for testing or after demonstrations.</p>
+            <p><strong>Endpoint:</strong> POST /api/reset</p>
+            <p>This endpoint replaces the current database with the default values. It does not require any input.</p>
+            <h4>Using Fetch to Call the Reset Endpoint</h4>
+  <code>
+    fetch('/api/reset', {
+        method: 'POST'
+        }).then(response => {
+           if (response.ok) return response.text();
+           throw new Error('Failed to reset database.');
+        }).then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+  </code>
+            <h4>Expected Outcome</h4>
+            <p><strong>Successful Response:</strong></p>
+            <ul>
+                <li><strong>Status Code:</strong> 200 OK</li>
+                <li><strong>Body:</strong> "Database has been reset to default."</li>
+            </ul>
+            <p><strong>Error Response:</strong></p>
+            <ul>
+                <li><strong>Status Code:</strong> 500 Internal Server Error</li>
+                <li><strong>Body:</strong> Detailed error message explaining why the reset failed.</li>
+            </ul>
+            <p><strong>Caution:</strong> This action is irreversible through the API. Once the database is reset to its default state, any added or modified data will be lost.</p>
+        </article>        
+        </section>
+    </main>
+</body>
+</html>

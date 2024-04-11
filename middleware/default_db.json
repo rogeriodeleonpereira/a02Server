@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": "id-1",
+      "name": "Aragorn",
+      "role": "Ranger",
+      "weapon": "Sword",
+      "race": "Human"
+    },
+    {
+      "id": "id-2",
+      "name": "Legolas",
+      "role": "Archer",
+      "weapon": "Bow and Arrow",
+      "race": "Elf"
+    },
+    {
+      "id": "id-3",
+      "name": "Gimli",
+      "role": "Warrior",
+      "weapon": "Axe",
+      "race": "Dwarf"
+    },
+    {
+      "id": "id-4",
+      "name": "Gandalf",
+      "role": "Wizard",
+      "weapon": "Staff",
+      "race": "Maia"
+    },
+    {
+      "id": "id-5",
+      "name": "Frodo Baggins",
+      "role": "Ring-bearer",
+      "weapon": "Sting",
+      "race": "Hobbit"
+    }
+  ]
+}
