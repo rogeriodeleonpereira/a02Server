@@ -101,3 +101,8 @@ Once the server is running, you can use the provided endpoints to manage the RPG
 - Delete an item: Sends a **DELETE** request to **/api/items/:id**
 
 Visit http://localhost:4042/api for more details.
+
+# Demonstration
+You can watch a video showing what your assignment is supposed to do:
+
+[Watch the Video](./public/docs/A02%20Example.mp4).
